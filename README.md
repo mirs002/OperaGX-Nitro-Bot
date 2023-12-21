@@ -9,4 +9,4 @@ You can input "inf" for amount of codes you want for endless repetitions until y
 2.  Download the repository and extract it to a folder, then run your desired terminal with the following command. 
 ``python
 pip install -r requirements.txt``
-4. Run main.py and if you see promolinks that means you installed it successfully.
+4. Run main.py and if you see promolinks.txt, that means you installed it successfully.
