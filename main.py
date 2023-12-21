@@ -12,17 +12,20 @@ headers = {
         }
 data = {"partnerUserId": str(uuid.uuid4())}
 
-if loop_amount == "inf":
-    while True:
-        response = requests.post(url, json=data, headers=headers)
-    promo = f"https://discord.com/billing/partner-promotions/1180231712274387115/{response.json().get('token')}"
-    with open("promotions.txt", "a") as f:
-                            f.write(f"\n{promo}\n")
-    time.sleep(float(interval))
-else:
+if loop_amount != "inf": 
     for i in range(int(loop_amount)):
+            
         response = requests.post(url, json=data, headers=headers)
         promo = f"https://discord.com/billing/partner-promotions/1180231712274387115/{response.json().get('token')}"
         with open("promotions.txt", "a") as f:
                                 f.write(f"\n{promo}\n")
         time.sleep(float(interval))
+elif loop_amount == "inf":
+    while True:
+        response = requests.post(url, json=data, headers=headers)
+        promo = f"https://discord.com/billing/partner-promotions/1180231712274387115/{response.json().get('token')}"
+        with open("promotions.txt", "a") as f:
+                                f.write(f"\n{promo}\n")
+        time.sleep(float(interval))
+else:
+    print("Invalid input.")
